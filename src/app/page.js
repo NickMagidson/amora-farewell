@@ -83,7 +83,7 @@ export default function Home() {
         className="fixed top-0 left-0 w-full h-full object-cover -z-10"
       >
         <source src="/amorafarewell.mp4" type="video/mp4" />
-        <source src="/background-video.webm" type="video/webm" />
+        {/* <source src="/background-video.webm" type="video/webm" /> */}
         Your browser does not support the video tag.
       </video>
       
