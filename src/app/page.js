@@ -1,30 +1,37 @@
+"use client";
+
 import Image from "next/image";
+import { useEffect, useState } from "react";
 
 export default function Home() {
+  const [isLoaded, setIsLoaded] = useState(false);
+
+  useEffect(() => {
+    setIsLoaded(true);
+  }, []);
+
   return (
-    <div className="relative font-oswald grid grid-rows-[20px_1fr_20px] items-center justify-items-center min-h-screen p-8 pb-20 gap-16 sm:p-20">
+    <div className={`relative font-oswald grid grid-rows-[20px_1fr_20px] items-center justify-items-center min-h-screen p-8 pb-20 gap-16 sm:p-20 transition-opacity duration-1000 ${isLoaded ? 'opacity-100' : 'opacity-0'}`}>
       {/* Header */}
-      <header className="fixed top-0 left-0 w-full z-20 bg-gradient-to-b from-black via-black/80 to-transparent h-24">
+      <header className={`fixed top-0 left-0 w-full z-20 bg-gradient-to-b from-black via-black/80 to-transparent h-24 transition-all duration-1000 delay-300 ${isLoaded ? 'translate-y-0 opacity-100' : '-translate-y-full opacity-0'}`}>
         <nav className="flex items-center justify-between px-8 py-4 h-full">
           {/* Record Label Logo */}
-
-                        <Image
-                src="/her.png"
-                alt="Record Label Logo"
-                width={160}
-                height={100}
-
-              />
-
-     
+          <a href="https://www.headingeastrecords.com/" target="_blank" className="hover:opacity-80 transition-opacity">
+            <Image
+              src="/her.png"
+              alt="Record Label Logo"
+              width={160}
+              height={100}
+            />
+          </a>
           
           {/* Navigation Items */}
           <div className="hidden md:flex items-center space-x-8">
-            <a href="#music" className="text-white/80 hover:text-white transition-colors text-sm font-light tracking-wider uppercase">Music</a>
-            <a href="#tours" className="text-white/80 hover:text-white transition-colors text-sm font-light tracking-wider uppercase">Tours</a>
-            <a href="#videos" className="text-white/80 hover:text-white transition-colors text-sm font-light tracking-wider uppercase">Videos</a>
-            <a href="#merch" className="text-white/80 hover:text-white transition-colors text-sm font-light tracking-wider uppercase">Merch</a>
-            <a href="#about" className="text-white/80 hover:text-white transition-colors text-sm font-light tracking-wider uppercase">About</a>
+            <a href="#music" className="text-white/80 hover:text-white transition-colors text-sm font-light tracking-wider uppercase">Discography</a>
+            <a href="#tours" className="text-white/80 hover:text-white transition-colors text-sm font-light tracking-wider uppercase">Archive</a>
+            {/* <a href="#videos" className="text-white/80 hover:text-white transition-colors text-sm font-light tracking-wider uppercase">Videos</a> */}
+            {/* <a href="#merch" className="text-white/80 hover:text-white transition-colors text-sm font-light tracking-wider uppercase">Merch</a> */}
+            {/* <a href="#about" className="text-white/80 hover:text-white transition-colors text-sm font-light tracking-wider uppercase">About</a> */}
           </div>
           
           {/* Mobile Menu Button */}
@@ -46,7 +53,7 @@ export default function Home() {
         playsInline
         className="fixed top-0 left-0 w-full h-full object-cover -z-10"
       >
-        <source src="/amoraweekender.mp4" type="video/mp4" />
+        <source src="/amorafarewell.mp4" type="video/mp4" />
         <source src="/background-video.webm" type="video/webm" />
         Your browser does not support the video tag.
       </video>
@@ -55,23 +62,31 @@ export default function Home() {
       <div className="fixed top-0 left-0 w-full h-full bg-black/60 -z-5"></div>
       
       {/* Decorative Lines */}
-      {/* Vertical line - left side */}
-      <div className="fixed left-8 top-1/2 transform -translate-y-1/2 w-px h-24 bg-white/60 z-10"></div>
+      {/* Vertical line - left side with text */}
+      <div className={`fixed left-8 top-1/2 transform -translate-y-1/2 flex flex-col items-center gap-6 z-10 transition-all duration-1000 delay-700 ${isLoaded ? 'scale-y-100 opacity-100' : 'scale-y-0 opacity-0'}`}>
+        {/* <span className="text-white/70 text-sm font-light tracking-widest uppercase transform -rotate-90">memories</span> */}
+        <div className="w-0.5 h-24 bg-white/60"></div> {/* The line itself */}
+        {/* <span className="text-white/70 text-sm font-light tracking-widest uppercase transform -rotate-90">forever</span> */}
+      </div>
       
-      {/* Vertical line - right side */}
-      <div className="fixed right-8 top-1/2 transform -translate-y-1/2 w-px h-24 bg-white/60 z-10"></div>
+      {/* Vertical line - right side with text */}
+      <div className={`fixed right-8 top-1/2 transform -translate-y-1/2 flex flex-col items-center gap-6 z-10 transition-all duration-1000 delay-700 ${isLoaded ? 'scale-y-100 opacity-100' : 'scale-y-0 opacity-0'}`}>
+        {/* <span className="text-white/70 text-sm font-light tracking-widest uppercase transform rotate-90">journey</span> */}
+        <div className="w-0.5 h-24 bg-white/60"></div> {/* The line itself */}
+        {/* <span className="text-white/70 text-sm font-light tracking-widest uppercase transform rotate-90">complete</span> */}
+      </div>
       
       {/* Horizontal line - bottom middle */}
       {/* Line is now integrated with text below */}
       
       {/* Text next to bottom line */}
-      <div className="fixed bottom-14 left-1/2 transform -translate-x-1/2 flex items-center justify-center gap-6 z-10">
+      <div className={`fixed bottom-14 left-1/2 transform -translate-x-1/2 flex items-center justify-center gap-6 z-10 transition-all duration-1000 delay-900 ${isLoaded ? 'translate-y-0 opacity-100' : 'translate-y-4 opacity-0'}`}>
         <span className="text-white/70 text-sm font-light tracking-widest uppercase">farewell</span>
-        <div className="w-24 h-px bg-white/60"></div> {/* The line itself */}
+        <div className="w-16 h-0.5 bg-white/60"></div> {/* The line itself */}
         <span className="text-white/70 text-sm font-light tracking-widest uppercase">thank you</span>
       </div>
       
-      <main className="relative z-10 flex flex-col gap-[32px] row-start-2 items-center sm:items-start backdrop-blur-sm rounded-lg p-8">
+      <main className={`relative z-10 flex flex-col gap-[32px] row-start-2 items-center sm:items-start backdrop-blur-sm rounded-lg p-8 transition-all duration-1000 delay-500 ${isLoaded ? 'translate-y-0 opacity-100' : 'translate-y-8 opacity-0'}`}>
         <Image
           className="m-auto"
           src="/amoraLogo.png"
