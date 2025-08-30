@@ -75,7 +75,7 @@ export default function Home() {
       </header>
       
       {/* Background Video */}
-      <video
+      {/* <video
         autoPlay
         muted
         loop
@@ -83,9 +83,8 @@ export default function Home() {
         className="fixed top-0 left-0 w-full h-full object-cover -z-10"
       >
         <source src="/amorafarewell.mp4" type="video/mp4" />
-        {/* <source src="/background-video.webm" type="video/webm" /> */}
         Your browser does not support the video tag.
-      </video>
+      </video> */}
       
       {/* Optional overlay for better text readability */}
       <div className="fixed top-0 left-0 w-full h-full bg-black/60 -z-5"></div>
