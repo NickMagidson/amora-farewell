@@ -2,20 +2,94 @@ import Image from "next/image";
 
 export default function Home() {
   return (
-    <div className="font-sans grid grid-rows-[20px_1fr_20px] items-center justify-items-center min-h-screen p-8 pb-20 gap-16 sm:p-20">
-      <main className="flex flex-col gap-[32px] row-start-2 items-center sm:items-start">
+    <div className="relative font-oswald grid grid-rows-[20px_1fr_20px] items-center justify-items-center min-h-screen p-8 pb-20 gap-16 sm:p-20">
+      {/* Header */}
+      <header className="fixed top-0 left-0 w-full z-20 bg-gradient-to-b from-black via-black/80 to-transparent h-24">
+        <nav className="flex items-center justify-between px-8 py-4 h-full">
+          {/* Record Label Logo */}
+
+                        <Image
+                src="/her.png"
+                alt="Record Label Logo"
+                width={160}
+                height={100}
+
+              />
+
+     
+          
+          {/* Navigation Items */}
+          <div className="hidden md:flex items-center space-x-8">
+            <a href="#music" className="text-white/80 hover:text-white transition-colors text-sm font-light tracking-wider uppercase">Music</a>
+            <a href="#tours" className="text-white/80 hover:text-white transition-colors text-sm font-light tracking-wider uppercase">Tours</a>
+            <a href="#videos" className="text-white/80 hover:text-white transition-colors text-sm font-light tracking-wider uppercase">Videos</a>
+            <a href="#merch" className="text-white/80 hover:text-white transition-colors text-sm font-light tracking-wider uppercase">Merch</a>
+            <a href="#about" className="text-white/80 hover:text-white transition-colors text-sm font-light tracking-wider uppercase">About</a>
+          </div>
+          
+          {/* Mobile Menu Button */}
+          <div className="md:hidden">
+            <button className="text-white/80 hover:text-white transition-colors">
+              <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 6h16M4 12h16M4 18h16" />
+              </svg>
+            </button>
+          </div>
+        </nav>
+      </header>
+      
+      {/* Background Video */}
+      <video
+        autoPlay
+        muted
+        loop
+        playsInline
+        className="fixed top-0 left-0 w-full h-full object-cover -z-10"
+      >
+        <source src="/amoraweekender.mp4" type="video/mp4" />
+        <source src="/background-video.webm" type="video/webm" />
+        Your browser does not support the video tag.
+      </video>
+      
+      {/* Optional overlay for better text readability */}
+      <div className="fixed top-0 left-0 w-full h-full bg-black/60 -z-5"></div>
+      
+      {/* Decorative Lines */}
+      {/* Vertical line - left side */}
+      <div className="fixed left-8 top-1/2 transform -translate-y-1/2 w-px h-24 bg-white/60 z-10"></div>
+      
+      {/* Vertical line - right side */}
+      <div className="fixed right-8 top-1/2 transform -translate-y-1/2 w-px h-24 bg-white/60 z-10"></div>
+      
+      {/* Horizontal line - bottom middle */}
+      {/* Line is now integrated with text below */}
+      
+      {/* Text next to bottom line */}
+      <div className="fixed bottom-14 left-1/2 transform -translate-x-1/2 flex items-center justify-center gap-6 z-10">
+        <span className="text-white/70 text-sm font-light tracking-widest uppercase">farewell</span>
+        <div className="w-24 h-px bg-white/60"></div> {/* The line itself */}
+        <span className="text-white/70 text-sm font-light tracking-widest uppercase">thank you</span>
+      </div>
+      
+      <main className="relative z-10 flex flex-col gap-[32px] row-start-2 items-center sm:items-start backdrop-blur-sm rounded-lg p-8">
         <Image
-          className="dark:invert"
-          src="/next.svg"
-          alt="Next.js logo"
-          width={180}
+          className="m-auto"
+          src="/amoraLogo.png"
+          alt="Amora logo"
+          width={650}
           height={38}
           priority
         />
-        <ol className="font-mono list-inside list-decimal text-sm/6 text-center sm:text-left">
+        <p className="text-white text-4xl font-light tracking-wider m-auto">
+          MMXIV-MMXXV
+        </p>
+        {/* <p className="text-white text-lg   font-light text-center m-auto max-w-md">
+          Farewell, and thank you for everything
+        </p> */}
+        {/* <ol className="font-mono list-inside list-decimal text-sm/6 text-center sm:text-left text-white">
           <li className="mb-2 tracking-[-.01em]">
             Get started by editing{" "}
-            <code className="bg-black/[.05] dark:bg-white/[.06] font-mono font-semibold px-1 py-0.5 rounded">
+            <code className="bg-black/40 backdrop-blur-sm font-mono font-semibold px-1 py-0.5 rounded text-white">
               src/app/page.js
             </code>
             .
@@ -23,17 +97,17 @@ export default function Home() {
           <li className="tracking-[-.01em]">
             Save and see your changes instantly.
           </li>
-        </ol>
+        </ol> */}
 
-        <div className="flex gap-4 items-center flex-col sm:flex-row">
+        {/* <div className="flex gap-4 items-center flex-col sm:flex-row">
           <a
-            className="rounded-full border border-solid border-transparent transition-colors flex items-center justify-center bg-foreground text-background gap-2 hover:bg-[#383838] dark:hover:bg-[#ccc] font-medium text-sm sm:text-base h-10 sm:h-12 px-4 sm:px-5 sm:w-auto"
+            className="rounded-full border border-solid border-white/30 transition-colors flex items-center justify-center bg-white/20 text-white backdrop-blur-sm gap-2 hover:bg-white/30 font-medium text-sm sm:text-base h-10 sm:h-12 px-4 sm:px-5 sm:w-auto"
             href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
             target="_blank"
             rel="noopener noreferrer"
           >
             <Image
-              className="dark:invert"
+              className="invert"
               src="/vercel.svg"
               alt="Vercel logomark"
               width={20}
@@ -42,18 +116,18 @@ export default function Home() {
             Deploy now
           </a>
           <a
-            className="rounded-full border border-solid border-black/[.08] dark:border-white/[.145] transition-colors flex items-center justify-center hover:bg-[#f2f2f2] dark:hover:bg-[#1a1a1a] hover:border-transparent font-medium text-sm sm:text-base h-10 sm:h-12 px-4 sm:px-5 w-full sm:w-auto md:w-[158px]"
+            className="rounded-full border border-solid border-white/30 transition-colors flex items-center justify-center hover:bg-white/20 backdrop-blur-sm hover:border-white/50 font-medium text-sm sm:text-base h-10 sm:h-12 px-4 sm:px-5 w-full sm:w-auto md:w-[158px] text-white"
             href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
             target="_blank"
             rel="noopener noreferrer"
           >
             Read our docs
           </a>
-        </div>
+        </div> */}
       </main>
-      <footer className="row-start-3 flex gap-[24px] flex-wrap items-center justify-center">
+      {/* <footer className="relative z-10 row-start-3 flex gap-[24px] flex-wrap items-center justify-center bg-white/10 backdrop-blur-sm rounded-lg p-4 border border-white/20">
         <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
+          className="flex items-center gap-2 hover:underline hover:underline-offset-4 text-white transition-colors hover:text-white/80"
           href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
           target="_blank"
           rel="noopener noreferrer"
@@ -64,11 +138,12 @@ export default function Home() {
             alt="File icon"
             width={16}
             height={16}
+            className="invert"
           />
           Learn
         </a>
         <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
+          className="flex items-center gap-2 hover:underline hover:underline-offset-4 text-white transition-colors hover:text-white/80"
           href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
           target="_blank"
           rel="noopener noreferrer"
@@ -79,11 +154,12 @@ export default function Home() {
             alt="Window icon"
             width={16}
             height={16}
+            className="invert"
           />
           Examples
         </a>
         <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
+          className="flex items-center gap-2 hover:underline hover:underline-offset-4 text-white transition-colors hover:text-white/80"
           href="https://nextjs.org?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
           target="_blank"
           rel="noopener noreferrer"
@@ -94,10 +170,11 @@ export default function Home() {
             alt="Globe icon"
             width={16}
             height={16}
+            className="invert"
           />
           Go to nextjs.org →
         </a>
-      </footer>
+      </footer> */}
     </div>
   );
 }
