@@ -26,6 +26,6 @@ body {
 }
 
 /* To hide next.js error overlay */
-nextjs-portal {
+/* nextjs-portal {
   display: none;
-}
+} */

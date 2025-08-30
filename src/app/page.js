@@ -57,14 +57,14 @@ export default function Home() {
         <div className={`md:hidden absolute top-full left-0 w-full bg-black/95 backdrop-blur-sm border-t border-white/20 transition-all duration-300 ${isMobileMenuOpen ? 'opacity-100 translate-y-0' : 'opacity-0 -translate-y-4 pointer-events-none'}`}>
           <nav className="flex flex-col py-4">
             <a 
-              href="#music" 
+              // href="#music" 
               className="text-white/80 hover:text-white transition-colors text-sm font-light tracking-wider uppercase px-8 py-3 border-b border-white/10"
               onClick={() => setIsMobileMenuOpen(false)}
             >
               Discography
             </a>
             <a 
-              href="#tours" 
+              // href="#tours" 
               className="text-white/80 hover:text-white transition-colors text-sm font-light tracking-wider uppercase px-8 py-3"
               onClick={() => setIsMobileMenuOpen(false)}
             >
