@@ -5,10 +5,15 @@ import { useEffect, useState } from "react";
 
 export default function Home() {
   const [isLoaded, setIsLoaded] = useState(false);
+  const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
 
   useEffect(() => {
     setIsLoaded(true);
   }, []);
+
+  const toggleMobileMenu = () => {
+    setIsMobileMenuOpen(!isMobileMenuOpen);
+  };
 
   return (
     <div className={`relative font-oswald grid grid-rows-[20px_1fr_20px] items-center justify-items-center min-h-screen p-8 pb-20 gap-16 sm:p-20 transition-opacity duration-1000 ${isLoaded ? 'opacity-100' : 'opacity-0'}`}>
@@ -27,8 +32,8 @@ export default function Home() {
           
           {/* Navigation Items */}
           <div className="hidden md:flex items-center space-x-8">
-            <a href="#music" className="text-white/80 hover:text-white transition-colors text-sm font-light tracking-wider uppercase">Discography</a>
-            <a href="#tours" className="text-white/80 hover:text-white transition-colors text-sm font-light tracking-wider uppercase">Archive</a>
+            <a href="#music" className="text-white/80 hover:text-white transition-colors text-xs sm:text-sm font-light tracking-wider uppercase">Discography</a>
+            <a href="#tours" className="text-white/80 hover:text-white transition-colors text-xs sm:text-sm font-light tracking-wider uppercase">Archive</a>
             {/* <a href="#videos" className="text-white/80 hover:text-white transition-colors text-sm font-light tracking-wider uppercase">Videos</a> */}
             {/* <a href="#merch" className="text-white/80 hover:text-white transition-colors text-sm font-light tracking-wider uppercase">Merch</a> */}
             {/* <a href="#about" className="text-white/80 hover:text-white transition-colors text-sm font-light tracking-wider uppercase">About</a> */}
@@ -36,13 +41,37 @@ export default function Home() {
           
           {/* Mobile Menu Button */}
           <div className="md:hidden">
-            <button className="text-white/80 hover:text-white transition-colors">
+            <button 
+              onClick={toggleMobileMenu}
+              className="text-white/80 hover:text-white transition-colors"
+              aria-label="Toggle mobile menu"
+            >
               <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 6h16M4 12h16M4 18h16" />
               </svg>
             </button>
           </div>
         </nav>
+        
+        {/* Mobile Menu */}
+        <div className={`md:hidden absolute top-full left-0 w-full bg-black/95 backdrop-blur-sm border-t border-white/20 transition-all duration-300 ${isMobileMenuOpen ? 'opacity-100 translate-y-0' : 'opacity-0 -translate-y-4 pointer-events-none'}`}>
+          <nav className="flex flex-col py-4">
+            <a 
+              href="#music" 
+              className="text-white/80 hover:text-white transition-colors text-sm font-light tracking-wider uppercase px-8 py-3 border-b border-white/10"
+              onClick={() => setIsMobileMenuOpen(false)}
+            >
+              Discography
+            </a>
+            <a 
+              href="#tours" 
+              className="text-white/80 hover:text-white transition-colors text-sm font-light tracking-wider uppercase px-8 py-3"
+              onClick={() => setIsMobileMenuOpen(false)}
+            >
+              Archive
+            </a>
+          </nav>
+        </div>
       </header>
       
       {/* Background Video */}
@@ -81,9 +110,9 @@ export default function Home() {
       
       {/* Text next to bottom line */}
       <div className={`fixed bottom-14 left-1/2 transform -translate-x-1/2 flex items-center justify-center gap-6 z-10 transition-all duration-1000 delay-900 ${isLoaded ? 'translate-y-0 opacity-100' : 'translate-y-4 opacity-0'}`}>
-        <span className="text-white/70 text-sm font-light tracking-widest uppercase">farewell</span>
+        <span className="text-white/70 sm:text-sm font-light tracking-widest uppercase whitespace-nowrap">farewell</span>
         <div className="w-16 h-0.5 bg-white/60"></div> {/* The line itself */}
-        <span className="text-white/70 text-sm font-light tracking-widest uppercase">thank you</span>
+        <span className="text-white/70 sm:text-sm font-light tracking-widest uppercase whitespace-nowrap">thank you</span>
       </div>
       
       <main className={`relative z-10 flex flex-col gap-[32px] row-start-2 items-center sm:items-start backdrop-blur-sm rounded-lg p-8 transition-all duration-1000 delay-500 ${isLoaded ? 'translate-y-0 opacity-100' : 'translate-y-8 opacity-0'}`}>
@@ -95,8 +124,8 @@ export default function Home() {
           height={38}
           priority
         />
-        <p className="text-white text-4xl font-light tracking-wider m-auto">
-          MMXIV-MMXXV
+        <p className="text-white text-2xl sm:text-4xl font-light tracking-wider m-auto">
+          MMXIV — MMXXV
         </p>
         {/* <p className="text-white text-lg   font-light text-center m-auto max-w-md">
           Farewell, and thank you for everything
